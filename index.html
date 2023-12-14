@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>YouTube</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>▶️</text></svg>">
  
 <style>
 @charset "UTF-8";
@@ -40,6 +41,16 @@ body {
         const url = urlParams.get('url')
         const yturl = "https://www.youtube-nocookie.com/embed/" + url + "?autoplay=1"
         document.getElementById('myframe').src= yturl;
+
+
+        const videoUrl = `https://www.youtube.com/watch?v=${url}`;
+
+        fetch(`https://www.youtube.com/oembed?url=${videoUrl}&format=json`)
+        .then(response => response.json())
+        .then(data => {
+        document.title = data.title;
+        })
+        .catch(error => console.error('Error:', error));
     </script>
     
 </body>
