@@ -37,10 +37,11 @@ body {
     position: absolute;
     bottom: 5px;
     right: 20px;
-    padding: 0px 32px;
+    padding: 0px 31.9px;
     border-radius: 5px;
     height: 33px;
     display: none;
+    pointer-events: none;
 }
 
 #linkContainer::before {
@@ -63,6 +64,9 @@ body {
     z-index: 10;
     padding: 0px 0px;
     width: 67px;
+    pointer-events: auto;
+    cursor: pointer;
+    display: block;
 }
 
 #linkContainer:hover::before {
